@@ -7,19 +7,21 @@ public class Main {
         exercicio01();
         exercicio02();
     }
-
-
     /*
     * exemplo: rodrigo, alex, kaio, caio, bia
     * */
     private static void exercicio01() {
         Scanner sc = new Scanner(System.in);
-        List<String> list = new ArrayList<>();
+        Map<Integer, String> usersMap = new HashMap<>();
 
         System.out.print("Adicione usurios separados por virgula\n ");
         String users = sc.nextLine();
         String[] userSplit = users.split(",");
-        System.out.println(Arrays.stream(userSplit).sorted().collect(Collectors.toList()));
+        var usersList = Arrays.stream(userSplit).sorted().collect(Collectors.toList());
+        for (int i = 0; i < usersList.size(); i++) {
+            usersMap.put(i+1, usersList.get(i));
+        }
+        System.out.println(usersMap);
     }
 
     /*
@@ -29,16 +31,16 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         Pattern patternMale = Pattern.compile("-\\s[Mm]+");
         Pattern patternFemale = Pattern.compile("-\\s[Ff]+");
-        List<List<String>> users = new ArrayList<>();
+        Map<String,List<String>> usersMap = new HashMap();
 
         System.out.print("Adicione usurios com nome e sexo, separados por virgula\n ");
         String user = sc.nextLine();
         String[] userSplit = user.split(",");
         List <String> matchingArrayMale = Arrays.stream(userSplit).filter(patternMale.asPredicate()).collect(Collectors.toList());
         List <String> matchingArrayFemale = Arrays.stream(userSplit).filter(patternFemale.asPredicate()).collect(Collectors.toList());
-        users.add(matchingArrayMale);
-        users.add(matchingArrayFemale);
+        usersMap.put("Male", matchingArrayMale);
+        usersMap.put("Female", matchingArrayFemale);
 
-        System.out.println(users);
+        System.out.println(usersMap);
     }
 }
