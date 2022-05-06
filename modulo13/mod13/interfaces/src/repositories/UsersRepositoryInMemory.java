@@ -1,12 +1,10 @@
-package services;
+package repositories;
 
 import entities.User;
-import repositories.UsersRepository;
 
 import java.util.ArrayList;
 
-public class UserServices implements UsersRepository
-{
+public class UsersRepositoryInMemory implements UsersRepository{
     @Override
     public ArrayList<User> findAll() {
         return UsersRepository.super.findAll();

@@ -1,5 +1,6 @@
 import entities.User;
-import services.UserServices;
+import repositories.UsersRepositoryInMemory;
+import useCases.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,21 +11,40 @@ public class Main {
         User user4 = new User("luiz", 26);
         User user5 = new User("cris", 28);
 
-        UserServices userServices = new UserServices();
-        userServices.addUser(user1);
-        userServices.addUser(user2);
-        userServices.addUser(user3);
-        userServices.addUser(user4);
-        userServices.addUser(user5);
+        System.out.println("******* Use Cases *******");
+        System.out.println(CreateUserUseCase.class.getName());
+        System.out.println(FindAllUserUseCase.class.getName());
+        System.out.println(FindByIdUserUseCase.class.getName());
+        System.out.println(FindByNameUserUseCase.class.getName());
+        System.out.println(DeleteUserUseCase.class.getName());
 
-        System.out.println("**** FIND ALL USERS ****");
-        System.out.println(userServices.findAll());
-        userServices.remove(user5);
-        System.out.println("**** REMOVE USER ****");
-        System.out.println(userServices.findAll());
-        System.out.println("**** FIND BY ID ****");
-        System.out.println(userServices.findById(1));
-        System.out.println("**** FIND BY NAME ****");
-        System.out.println(userServices.findByName("murilo"));
+        System.out.println();
+        System.out.println("******* Repository In Memory *******");
+        System.out.println(UsersRepositoryInMemory.class.getName());
+        System.out.println();
+        UsersRepositoryInMemory usersRepositoryInMemory = new UsersRepositoryInMemory();
+
+        CreateUserUseCase createUserUseCase = new CreateUserUseCase(usersRepositoryInMemory);
+        FindAllUserUseCase findAllUserUseCase = new FindAllUserUseCase(usersRepositoryInMemory);
+        FindByIdUserUseCase findByIdUserUseCase = new FindByIdUserUseCase(usersRepositoryInMemory);
+        FindByNameUserUseCase findByNameUserUseCase = new FindByNameUserUseCase(usersRepositoryInMemory);
+        DeleteUserUseCase deleteUserUseCase = new DeleteUserUseCase(usersRepositoryInMemory);
+
+        createUserUseCase.execute(user1);
+        createUserUseCase.execute(user2);
+        createUserUseCase.execute(user3);
+        createUserUseCase.execute(user4);
+        createUserUseCase.execute(user5);
+
+
+        System.out.println("******* FIND ALL USERS *******");
+        System.out.println(findAllUserUseCase.execute());
+        deleteUserUseCase.execute(user5);
+        System.out.println("******* REMOVE USER *******");
+        System.out.println(findAllUserUseCase.execute());
+        System.out.println("******* FIND USER BY ID *******");
+        System.out.println(findByIdUserUseCase.execute(1));
+        System.out.println("******* FIND USER BY NAME ******* ");
+        System.out.println(findByNameUserUseCase.execute("murilo"));
     }
 }
