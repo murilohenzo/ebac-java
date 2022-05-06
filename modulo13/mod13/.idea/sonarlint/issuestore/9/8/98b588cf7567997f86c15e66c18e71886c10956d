@@ -1,0 +1,8 @@
+
+S	java:S106
+"9Replace this use of System.out or System.err by a logger.(õë£‹ÿÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(¥ØÈÔıÿÿÿÿ
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(ÃÅäÇúÿÿÿÿ8Êë¦‰0
+T	java:S106"9Replace this use of System.out or System.err by a logger.(ïÛ—+8Û«í¦‰0
+I
+java:S1128",Remove this unused import 'entities.Pessoa'.(ÙàûÃ8úöç¦‰0
