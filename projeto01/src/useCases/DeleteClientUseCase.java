@@ -13,7 +13,7 @@ public class DeleteClientUseCase {
     public void execute(Long cpf){
         Client existsClient = this.clientsRepository.search(cpf);
         if (existsClient != null) {
-            this.clientsRepository.delete(cpf, existsClient);
+            this.clientsRepository.delete(existsClient.getCpf());
         }
     }
 }

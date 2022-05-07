@@ -2,25 +2,25 @@ package repository;
 
 import domain.Client;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
-public class ClientMapRepositoryInMemory implements IClientsRepository{
-    private final Map<Long, Client> clientMap;
+public class ClientSetRepositoryInMemory implements IClientsRepository{
+    private final HashSet<Client> clientSet;
 
-    public ClientMapRepositoryInMemory() {
-        this.clientMap = new HashMap<>();
+    public ClientSetRepositoryInMemory() {
+        this.clientSet = new HashSet<>();
     }
 
     @Override
     public void create(Client client) {
-        this.clientMap.put(client.getCpf(), client);
+        this.clientSet.add(client);
     }
 
     @Override
     public void delete(Long cpf) {
-        this.clientMap.remove(cpf);
+        Client existClient = this.clientSet.stream().filter(c -> Objects.equals(c.getCpf(), cpf)).findAny().orElse(null);
+        this.clientSet.remove(existClient);
     }
 
     @Override
@@ -36,11 +36,11 @@ public class ClientMapRepositoryInMemory implements IClientsRepository{
 
     @Override
     public Client search(Long cpf) {
-        return this.clientMap.get(cpf);
+        return this.clientSet.stream().filter(c -> Objects.equals(c.getCpf(), cpf)).findAny().orElse(null);
     }
 
     @Override
     public Collection<Client> findAll() {
-        return this.clientMap.values();
+        return this.clientSet;
     }
 }
