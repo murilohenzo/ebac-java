@@ -12,8 +12,6 @@ public class Main {
                 "5510312312312", "Sao Paulo",
                 "1333", "Sao Paulo", "Sao Paulo");
 
-        LoggerCtx loggerCtx = new LoggerCtx();
-
         ClientMapRepositoryInMemory clientMapRepositoryInMemory = new ClientMapRepositoryInMemory();
         ClientSetRepositoryInMemory clientSetRepositoryInMemory = new ClientSetRepositoryInMemory();
         CreateClientUseCase createClientUseCase = new CreateClientUseCase(clientSetRepositoryInMemory);
@@ -22,15 +20,16 @@ public class Main {
         DeleteClientUseCase deleteClientUseCase = new DeleteClientUseCase(clientSetRepositoryInMemory);
         UpdateClientUseCase updateClientUseCase = new UpdateClientUseCase(clientSetRepositoryInMemory);
 
+
         createClientUseCase.execute(client);
-        loggerCtx.createLogger(FindAllClientsUseCase.class.getName(), Level.INFO, findAllClientsUseCase.execute().toString());
-        loggerCtx.createLogger(SearchClientUseCase.class.getName(), Level.INFO, searchClientUseCase.execute(Long.parseLong("123456")).toString());
-        client.setName("Henzo");
-        client.setCity("Suzano");
-        loggerCtx.createLogger(SearchClientUseCase.class.getName(), Level.INFO, searchClientUseCase.execute(Long.parseLong("123456")).toString());
-        updateClientUseCase.execute(Long.parseLong("123456"), client);
-        loggerCtx.createLogger(SearchClientUseCase.class.getName(), Level.INFO, searchClientUseCase.execute(Long.parseLong("123456")).toString());
-        deleteClientUseCase.execute(Long.parseLong("123456"));
-        loggerCtx.createLogger(FindAllClientsUseCase.class.getName(), Level.INFO, findAllClientsUseCase.execute().toString());
+        LoggerCtx.createLogger(Level.INFO, FindAllClientsUseCase.class.getName(), "List clients", findAllClientsUseCase.execute().toString());
+//        loggerCtx.createLogger(Level.INFO, searchClientUseCase.execute(Long.parseLong("123456")).toString());
+//        client.setName("Henzo");
+//        client.setCity("Suzano");
+//        loggerCtx.createLogger(Level.INFO, searchClientUseCase.execute(Long.parseLong("123456")).toString());
+//        updateClientUseCase.execute(Long.parseLong("123456"), client);
+//        loggerCtx.createLogger(Level.INFO, searchClientUseCase.execute(Long.parseLong("123456")).toString());
+//        deleteClientUseCase.execute(Long.parseLong("123456"));
+//        loggerCtx.createLogger(Level.INFO, findAllClientsUseCase.execute().toString());
     }
 }

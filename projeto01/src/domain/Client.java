@@ -12,6 +12,41 @@ public class Client {
     private String city;
     private String state;
 
+    public Client(String name, String cpf) {
+        this.name = name;
+        this.cpf = Long.valueOf(cpf.trim());
+    }
+
+    public Client(String name, String cpf, String phoneNumber) {
+        this.name = name;
+        this.cpf = Long.valueOf(cpf.trim());
+        this.phoneNumber = Long.valueOf(phoneNumber.trim());
+    }
+
+    public Client(String name, String cpf, String phoneNumber, String address) {
+        this.name = name;
+        this.cpf = Long.valueOf(cpf.trim());
+        this.phoneNumber = Long.valueOf(phoneNumber.trim());
+        this.address = address;
+    }
+
+    public Client(String name, String cpf, String phoneNumber, String address, String number) {
+        this.name = name;
+        this.cpf = Long.valueOf(cpf.trim());
+        this.phoneNumber = Long.valueOf(phoneNumber.trim());
+        this.address = address;
+        this.number = Integer.valueOf(number.trim());
+    }
+
+    public Client(String name, String cpf, String phoneNumber, String address, String number, String city) {
+        this.name = name;
+        this.cpf = Long.valueOf(cpf.trim());
+        this.phoneNumber = Long.valueOf(phoneNumber.trim());
+        this.address = address;
+        this.number = Integer.valueOf(number.trim());
+        this.city = city;
+    }
+
     public Client(String name, String cpf, String phoneNumber, String address, String number, String city, String state) {
         this.name = name;
         this.cpf = Long.valueOf(cpf.trim());

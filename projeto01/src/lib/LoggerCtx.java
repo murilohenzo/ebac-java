@@ -5,12 +5,8 @@ import java.util.logging.Logger;
 
 public class LoggerCtx {
 
-    public LoggerCtx() {
-        // TODO document why this constructor is empty
-    }
-
-    public void createLogger(String className, Level level, String message) {
-        Logger logger = Logger.getLogger(className);
-        logger.log(level, message);
+    public static void createLogger(Level level, String sourceClass, String sourceMethod, String message) {
+        Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME.getClass().getName());
+        logger.logp(level, sourceClass, sourceMethod, message);
     }
 }

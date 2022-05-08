@@ -12,7 +12,7 @@ public class CreateClientUseCase {
 
     public Boolean execute(Client client){
         Client existClient = this.clientsRepository.search(client.getCpf());
-        if (existClient != null) {
+        if (existClient != null || client.getCpf() == null) {
             return false;
         }
         this.clientsRepository.create(client);
