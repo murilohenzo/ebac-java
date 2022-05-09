@@ -12,6 +12,9 @@ public class Client {
     private String city;
     private String state;
 
+    public Client(String name) {
+        this.name = name;
+    }
     public Client(String name, String cpf) {
         this.name = name;
         this.cpf = Long.valueOf(cpf.trim());

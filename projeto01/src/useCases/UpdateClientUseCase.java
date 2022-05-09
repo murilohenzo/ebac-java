@@ -13,7 +13,7 @@ public class UpdateClientUseCase {
     public void execute(Long cpf, Client client){
         Client existsClient = this.clientsRepository.search(cpf);
         if (existsClient != null) {
-            this.clientsRepository.update(existsClient, existsClient);
+            this.clientsRepository.update(existsClient, client);
         }
     }
 }

@@ -25,13 +25,21 @@ public class ClientSetRepositoryInMemory implements IClientsRepository{
 
     @Override
     public void update(Client existsClient , Client client) {
+        if (client.getName() != null) {
             existsClient.setName(client.getName());
+        } else if (client.getCpf() != null) {
             existsClient.setCpf(client.getCpf());
+        } else if (client.getPhoneNumber() != null) {
             existsClient.setPhoneNumber(client.getPhoneNumber());
+        } else if (client.getAddress() != null) {
             existsClient.setAddress(client.getAddress());
+        } else if (client.getNumber() != null) {
             existsClient.setNumber(client.getNumber());
+        } else if (client.getCity() != null) {
             existsClient.setCity(client.getCity());
+        } else if (client.getState() != null) {
             existsClient.setState(client.getState());
+        }
     }
 
     @Override
