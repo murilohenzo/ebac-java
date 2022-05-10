@@ -1,0 +1,16 @@
+
+b
+java:S1192"GDefine a constant instead of duplicating this literal "123456" 4 times.(Öúø ûÿÿÿÿ
+e
+java:S1192"JDefine a constant instead of duplicating this literal "Sao Paulo" 3 times.(Ù–ÇÙýÿÿÿÿ
+~
+java:S1450"aRemove the "iClientsRepository" field and declare it as a local variable in the relevant methods.(½¸…”8À™½²Š0
+]	java:S125"<This block of commented-out lines of code should be removed.(Ã€‰¸øÿÿÿÿ8»û¼²Š0
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ó´®Èúÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ó´®Èúÿÿÿÿ
+L
+java:S1128"*Remove this unused import 'lib.LoggerCtx'.(†û©Õýÿÿÿÿ8Õ×½²Š0
+`
+java:S1128"CRemove this unused import 'repository.ClientMapRepositoryInMemory'.(‘ÖÖª8Õ×½²Š0
+Q
+java:S1128"4Remove this unused import 'java.util.logging.Level'.(…µÛ¶8Õ×½²Š0
