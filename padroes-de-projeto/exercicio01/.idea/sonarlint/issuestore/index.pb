@@ -15,10 +15,10 @@ M
 src/factories/CarFactory.java,e\7\e70354b4f97a9468d53f3a5f13e5c41afd48eea8
 R
 "src/factories/AsianCarFactory.java,4\c\4cd8b6c6afd8cdf26dda947b639cd1a88305b040
-H
-src/domain/SmallCar.java,3\8\387ef9017ab25e58e44dd404f216736697389fdf
 I
 src/domain/LuxuryCar.java,1\5\15e23d0f1999ea56582aa6e943be01add90da58b
+H
+src/domain/SmallCar.java,3\8\387ef9017ab25e58e44dd404f216736697389fdf
 C
 src/domain/Car.java,c\6\c6b554cbe3ea0a2e210f6e21045df8feecbf1beb
 H
