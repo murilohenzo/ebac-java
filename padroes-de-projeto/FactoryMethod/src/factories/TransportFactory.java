@@ -6,6 +6,7 @@ import domain.Truck;
 
 public class TransportFactory {
     public TransportFactory() {
+        // TODO document why this constructor is empty
     }
 
     public static void getTransport(TransportType type) {
