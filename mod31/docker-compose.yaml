@@ -1,0 +1,12 @@
+version: '3.1'
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: vendas-online-db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: vendas_online
